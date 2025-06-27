@@ -1,0 +1,129 @@
+:host {
+  display: block;
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+  font-family: 'Inter', sans-serif;
+}
+.canvas-container {
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  position: relative;
+  /* Fondo de día por defecto */
+  background: linear-gradient(to bottom, #87CEEB 0%, #E0F6FF 100%);
+  background-size: 200% 100%;
+  animation: scroll-background 60s linear infinite;
+  overflow: hidden; /* Asegura que el contenido SVG del fondo no se desborde */
+  transition: background 1s ease-in-out;
+}
+
+/* Estilos para el tema nocturno */
+.canvas-container.is-night {
+  background: linear-gradient(to bottom, #0f2027 0%, #203a43 50%, #2c5364 100%);
+  /* animation-duration: 5s; El fondo de noche se mueve más lento */
+}
+
+
+
+/* Animación para el desplazamiento del fondo */
+@keyframes scroll-background {
+  from { background-position: 0% 0; }
+  to { background-position: 200% 0; }
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* El fondo del canvas es transparente para que se vea el del contenedor */
+  background-color: transparent;
+}
+.overlay-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.85);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  padding: 1rem;
+}
+
+/* El panel de superposición de noche es más oscuro */
+.is-night .overlay-panel {
+    background: rgba(0, 0, 0, 0.75);
+    color: #fff;
+}
+.is-night .overlay-panel .text-gray-700,
+.is-night .overlay-panel .text-gray-500 {
+    color: #e0e0e0;
+}
+.is-night .legend-container {
+    background: rgba(0,0,0,0.5);
+}
+.is-night .legend-item {
+    color: #fff;
+}
+
+
+.action-button {
+  color: white;
+  font-weight: bold;
+  background-color: #203a43;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.action-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+}
+
+/* Estilos de la Leyenda */
+.legend-container {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  max-width: 500px;
+  background: rgba(255,255,255,0.7);
+  padding: 1rem;
+  border-radius: 0.75rem;
+  transition: background 1s ease-in-out;
+}
+.legend-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.legend-title {
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+.legend-items {
+  display: flex;
+  gap: 1.5rem;
+}
+.legend-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.8rem;
+  color: #333;
+}
+.legend-icon {
+  height: 35px;
+  width: auto;
+  margin-bottom: 0.25rem;
+}
