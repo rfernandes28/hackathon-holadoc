@@ -11,10 +11,12 @@ import {
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Player, Obstacle, ASSETS } from './game-engine'; // Importa la lógica del juego
+import { Router } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule,  MatIconModule,],
   selector: 'game-section',
   templateUrl: './game-section.component.html',
   styleUrls: ['./game-section.component.css'],
@@ -56,7 +58,7 @@ export class GameSectionComponent implements AfterViewInit, OnDestroy {
   private gameLoopId: number | null = null;
   private readonly HIGH_SCORE_KEY = 'telemedGameHighScore';
 
-  constructor(private cdr: ChangeDetectorRef, private ngZone: NgZone) {
+  constructor(private cdr: ChangeDetectorRef, private ngZone: NgZone, private router: Router) {
     this.loadHighScore();
 
     this.virusAssetUrl = 'data:image/svg+xml;base64,' + btoa(ASSETS.virus);
@@ -77,6 +79,13 @@ export class GameSectionComponent implements AfterViewInit, OnDestroy {
     if (this.gameLoopId) {
       cancelAnimationFrame(this.gameLoopId);
     }
+  }
+
+  backToWaitingRoom(): void {
+    if (this.gameLoopId) {
+      cancelAnimationFrame(this.gameLoopId);
+    }
+    this.router.navigate(['waiting-room']);
   }
 
   // --- Control del Juego ---
