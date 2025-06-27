@@ -38,6 +38,7 @@ export class LoginComponent  implements OnInit {
       // Generar token aleatorio
       const token = Math.random().toString(36).substring(2) + Date.now().toString(36);
       localStorage.setItem('token', token);
+      localStorage.setItem('identificacion', this.identificacion);
       // Navegar a home
       this.router.navigate(['home']);
     } else {

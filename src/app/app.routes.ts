@@ -9,17 +9,33 @@ export const routes: Routes = [
     canActivate: [LoginRedirectGuard]
   },
   {
-    path: 'home',
-    loadComponent: () => import('./pages/home/home.component').then(m => m.HomeComponent),
+    path: 'waiting-room',
+    loadComponent: () => import('./pages/home/waiting-room.component').then(m => m.WaitingRoomComponent),
+    canActivate: [AuthenticationGuard],
+    children: [
+      {
+        path: 'dashboard',
+        loadComponent: () => import('./pages/home/dashboard-section.component').then(m => m.DashboardSectionComponent)
+      },
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'dashboard'
+      }
+    ]
+  },
+  {
+    path: 'game',
+    loadComponent: () => import('./pages/game/game-section.component').then(m => m.GameSectionComponent),
     canActivate: [AuthenticationGuard]
   },
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'login'
+    redirectTo: 'waiting-room'
   },
   {
     path: '**',
-    redirectTo: 'login'
+    redirectTo: 'waiting-room'
   }
 ];
