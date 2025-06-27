@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
@@ -23,8 +23,10 @@ import { WaitingActionComponent } from './waiting-action.component';
   styleUrls: ['./waiting-room.component.scss']
 })
 export class WaitingRoomComponent {
+
+    constructor(private router: Router) { }
   onViewServices() {
-    window.open('/game', '_blank');
+    this.router.navigate(['game']);
   }
   onGetSupport() {
     window.open('https://qa.library.sinapsis.holadoc.com', '_blank');
