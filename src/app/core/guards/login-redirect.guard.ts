@@ -8,7 +8,7 @@ export class LoginRedirectGuard implements CanActivate {
   canActivate(): boolean {
     const authToken = localStorage.getItem('token');
     if (authToken) {
-      this.router.navigate(['home']);
+      this.router.navigate(['waiting-room']);
       return false;
     }
     return true;

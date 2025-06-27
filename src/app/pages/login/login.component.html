@@ -1,7 +1,7 @@
 <div class="login-container">
   <div class="login-card">
     <div class="logo-placeholder">
-      <img src="assets/holadoc-logo.png" alt="HolaDOC Logo" class="logo">
+      <img src="assets/Logo.png" alt="HolaDOC Logo" class="logo">
       </div>
 
     <form class="login-form">
@@ -10,7 +10,7 @@
       <div class="form-group">
         <label for="identificacion">Número de Identificación</label>
         <div class="input-with-icon">
-          <input type="text" id="identificacion" placeholder="12345678" [(ngModel)]="identificacion" name="identificacion">
+          <input type="text" id="identificacion" placeholder="12345678" [(ngModel)]="identificacion" name="identificacion" pattern="[0-9]*" inputmode="numeric" maxlength="15" (keydown)="onInputIdentificacion($event)">
           
         </div>
       </div>

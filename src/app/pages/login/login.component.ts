@@ -46,6 +46,10 @@ export class LoginComponent  implements OnInit {
     }
   }
 
-
- 
+  onInputIdentificacion(event: KeyboardEvent) {
+    const allowed = /[0-9]/;
+    if (!allowed.test(event.key) && event.key !== 'Backspace' && event.key !== 'Tab' && event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') {
+      event.preventDefault();
+    }
+  }
 }
