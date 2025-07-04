@@ -1,0 +1,35 @@
+<div class="waiting-room-container">
+  <button class="logout-btn" (click)="logout()">
+    <mat-icon>logout</mat-icon> Cerrar sesión
+  </button>
+  <div class="waiting-room-box">
+    <h2 class="waiting-title">Sala de espera</h2>
+    <p class="waiting-subtitle">Tu posición en la cola es:</p>
+    <div class="waiting-position">3</div>
+    <p class="waiting-info">Te avisaremos cuando sea tu turno.</p>
+    <p class="waiting-while"><strong>Mientras esperas puedes:</strong></p>
+    <div class="waiting-actions">
+      <waiting-action
+        title="Explora un juego"
+        description="Mata el tiempo en un juego interactivo."
+        image="assets/descarga.png"
+        buttonText="Jugar"
+        (buttonClick)="onViewServices()"
+      />
+      <waiting-action
+        title="Descarga nuestros recursos digitales"
+        description="¿Necesitas ayuda? Impulsa tu Bienestar con nuestros recursos digitales y avanza hacia una vida más saludable y activa."
+        image="assets/descarga.png"
+        buttonText="Ver recursos"
+        (buttonClick)="onGetSupport()"
+      />
+      <waiting-action
+        title="Gestiona tus familiares"
+        description="Actualiza tu la información de perfil y configuraciones de tus familiares."
+        image="assets/descarga.png"
+        buttonText="Gestionar familiares"
+        (buttonClick)="onManageAccount()"
+      />
+    </div>
+  </div>
+</div>

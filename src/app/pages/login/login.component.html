@@ -1,0 +1,36 @@
+<div class="login-container">
+  <div class="login-card">
+    <div class="logo-placeholder">
+      <img src="assets/Logo.png" alt="HolaDOC Logo" class="logo">
+      </div>
+
+    <form class="login-form">
+      <h2>Iniciar sesión</h2>
+
+      <div class="form-group">
+        <label for="identificacion">Número de Identificación</label>
+        <div class="input-with-icon">
+          <input type="text" id="identificacion" placeholder="12345678" [(ngModel)]="identificacion" name="identificacion" pattern="[0-9]*" inputmode="numeric" maxlength="15" (keydown)="onInputIdentificacion($event)">
+          
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Contraseña</label>
+        <div class="input-with-icon">
+          <input [type]="showPassword ? 'text' : 'password'" id="password" [(ngModel)]="password" name="password">
+          <span class="icon password-toggle" (click)="togglePasswordVisibility()">
+            <mat-icon *ngIf="!showPassword">visibility_off</mat-icon>
+            <mat-icon *ngIf="showPassword">visibility</mat-icon>
+          </span>
+        </div>
+      </div>
+
+      <a href="#" class="forgot-password"></a>
+
+      <button type="submit" class="login-button" (click)="onLogin()">Iniciar sesión</button>
+    </form>
+
+   
+  </div>
+</div>

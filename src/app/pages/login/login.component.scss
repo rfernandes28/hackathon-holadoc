@@ -1,0 +1,179 @@
+/* Contenedor principal de toda la página */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ocupa al menos la altura de la ventana */
+  background-color: #f0f2f5; /* Fondo gris claro similar al de GitHub */
+  padding: 20px;
+  box-sizing: border-box; /* Asegura que el padding no cause desbordamiento */
+}
+
+/* Tarjeta principal del formulario de login */
+.login-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  width: 100%;
+  max-width: 400px; /* Ancho máximo similar al de la imagen */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 25px; /* Espaciado entre secciones */
+}
+
+/* Estilo para el logo o el título de HolaDOC */
+.logo-placeholder {
+  margin-bottom: 20px;
+}
+
+.logo-placeholder .logo {
+  max-width: 180px; /* Ajusta el tamaño del logo */
+  height: auto;
+}
+
+.logo-placeholder h1 {
+  color: #333;
+  font-size: 2.2em;
+  margin: 0;
+}
+
+/* Formulario de inicio de sesión */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.login-form h2 {
+  font-size: 1.8em;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.form-group {
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #555;
+  font-size: 0.95em;
+}
+
+/* Estilo para los campos de entrada con íconos */
+.input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center; /* Alinea el ícono verticalmente */
+}
+
+.input-with-icon input {
+  width: 100%;
+  padding: 12px 40px 12px 15px; /* Más padding a la derecha para el icono */
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1em;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+.input-with-icon input:focus {
+  border-color: #007bff; /* Color de enfoque azul */
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Sutil sombra de enfoque */
+}
+
+.input-with-icon .icon {
+  position: absolute;
+  right: 15px;
+  color: #888;
+  height: 20px; /* Asegura que el SVG tenga un tamaño fijo */
+  width: 20px; /* Asegura que el SVG tenga un tamaño fijo */
+  cursor: default; /* Por defecto no es clickeable */
+}
+
+.input-with-icon .password-toggle {
+  cursor: pointer; /* Solo el ojo es clickeable */
+  transition: color 0.2s;
+}
+
+.input-with-icon .password-toggle:hover {
+  color: #333;
+}
+
+/* Enlace de "Olvidaste tu contraseña" */
+.forgot-password {
+  text-align: right;
+  font-size: 0.9em;
+  color: #007bff;
+  text-decoration: none;
+  display: block; /* Para que ocupe su propia línea y el text-align funcione */
+  margin-top: -10px; /* Acercarlo al campo de contraseña */
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+/* Botón de inicio de sesión */
+.login-button {
+  background: #1a55a1;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 10px 32px;
+  margin-top: 18px;
+  cursor: pointer;
+  transition: background 0.2s;
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 2px 8px 0 rgba(26, 85, 161, 0.08);
+}
+
+.login-button:hover {
+  background: #174a8a;
+}
+
+.login-button:active {
+  background-color: #004085;
+}
+
+/* Texto de registro */
+.register-text {
+  font-size: 0.9em;
+  color: #777;
+  margin-top: 20px;
+}
+
+.register-link {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+}
+
+/* Estilos de respuesta para pantallas pequeñas (opcional) */
+@media (max-width: 500px) {
+  .login-card {
+    padding: 25px;
+    margin: 0 15px; /* Pequeño margen en los lados para móviles */
+  }
+
+  .login-form h2 {
+    font-size: 1.6em;
+  }
+
+  .login-button {
+    font-size: 1em;
+    padding: 12px 15px;
+  }
+}
